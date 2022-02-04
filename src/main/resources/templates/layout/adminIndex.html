@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>스시캡틴</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- JQuery   -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Favicons -->
+        <link th:href="@{/assets/img/favicon.png}" rel="icon">
+        <link th:href="@{/assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+        <!-- Vendor CSS Files -->
+        <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet">
+        <link th:href="@{/assets/css/adminStyle.css}" rel="stylesheet">
+        <link th:href="@{/assets/css/bootstrap-datepicker.css}" rel="stylesheet">
+
+
+    </head>
+    <body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">스시캡틴</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                   th:href="@{/susi/admin/list}">예약 내역 조회</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                   th:href="@{/susi/admin/menu}">메뉴 변경</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                   th:href="@{/susi/admin/bannerImage}">메인 이미지 변경</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                   th:href="@{/susi/admin/dayOff}">예약 가능 일자 변경</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                   th:href="@{/susi/admin/information}">관리자 정보 변경</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                    <span th:unless="${noLogin}" class="nav-item active">
+                        <a class="nav-link" th:href="@{/susi/admin/logout}">Logout</a>
+                    </span>
+
+
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                <th:block th:replace="${content}"></th:block>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+
+
+    <!-- Core theme JS-->
+    <script th:src="@{/assets/js/bootstrap.js}"></script>
+    <script th:src="@{/assets/js/adminScript.js}"></script>
+    <script th:src="@{/assets/js/bootstrap-datepicker.js}"></script>
+    <script>
+        $(function () {
+            var msg = '[(${msg})]' || '';
+            if (msg != "") {
+                alert(msg);
+            }
+        })
+    </script>
+
+    </body>
+</th:block>
+</html>
