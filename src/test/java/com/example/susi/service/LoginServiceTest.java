@@ -12,14 +12,14 @@ class LoginServiceTest {
     @Autowired
     LoginService loginService;
 
-    @Test
-    void login() {
-        MemberDTO memberDTO = MemberDTO.builder()
-                .email("user10@gmail.com")
-                .password("1111")
-                .build();
-        boolean login = loginService.login(memberDTO);
-        System.out.println("login = " + login);
-    }
+//    @Test
+//    void login() {
+//        MemberDTO memberDTO = MemberDTO.builder()
+//                .email("user10@gmail.com")
+//                .password("1111")
+//                .build();
+//        boolean login = loginService.login(memberDTO);
+//        System.out.println("login = " + login);
+//    }
 
 }

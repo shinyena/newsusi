@@ -14,25 +14,25 @@ class MemberRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
 
-    @Test
-    void insertAdmin() {
-        Member member = Member.builder()
-                .email("admin")
-                .password("1111")
-                .build();
-        memberRepository.save(member);
-    }
+//    @Test
+//    void insertAdmin() {
+//        Member member = Member.builder()
+//                .email("admin")
+//                .password("1111")
+//                .build();
+//        memberRepository.save(member);
+//    }
 
-    @Test
-    void insertMembers() {
-        IntStream.rangeClosed(1, 10).forEach(i -> {
-            Member member = Member.builder()
-                    .email("user" + i + "@gmail.com")
-                    .password("1111")
-                    .build();
-            memberRepository.save(member);
-        });
-    }
+//    @Test
+//    void insertMembers() {
+//        IntStream.rangeClosed(1, 10).forEach(i -> {
+//            Member member = Member.builder()
+//                    .email("user" + i + "@gmail.com")
+//                    .password("1111")
+//                    .build();
+//            memberRepository.save(member);
+//        });
+//    }
     
     @Test
     void findPassword() {
