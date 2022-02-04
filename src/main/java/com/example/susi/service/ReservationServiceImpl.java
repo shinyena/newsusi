@@ -30,11 +30,11 @@ public class ReservationServiceImpl implements ReservationService{
     public void register(ReservationDTO reservationDTO) {
         Optional<ReserveTime> result = timeRepository.findById(new ReserveTimeID(reservationDTO.getRdate(), reservationDTO.getRtime()));
 
-        if (result.isEmpty()) {
+        if (!result.isPresent()) {
             Map<String, Object> entityMap = dtoToEntity(reservationDTO);
 
             Optional<Member> byId = memberRepository.findById(reservationDTO.getEmail());
-            if (byId.isEmpty()) {
+            if (!byId.isPresent()) {
                 Member member = (Member) entityMap.get("member");
                 memberRepository.save(member);
             }
@@ -67,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService{
 
             Optional<ReserveTime> checkTime = timeRepository.findById(new ReserveTimeID(
                     reservationDTO.getRdate(), reservationDTO.getRtime()));
-            if (checkTime.isEmpty()) {
+            if (!checkTime.isPresent()) {
                 timeRepository.deleteById(new ReserveTimeID(
                         reservation.getReserveTime().getRdate(),
                         reservation.getReserveTime().getRtime()));
