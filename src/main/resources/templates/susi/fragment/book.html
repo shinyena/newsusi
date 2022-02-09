@@ -56,7 +56,7 @@
     </div>
 
     <script>
-        console.log(Date.now().toString());
+        console.log(Date.parse(Date.now()));
         $.getJSON("/susi/date", function (result) {
             $(".datePicker").datepicker({
                 startDate: '+1d',
