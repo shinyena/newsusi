@@ -5,6 +5,8 @@ import com.example.susi.dto.ReservationDTO;
 import com.example.susi.entity.Member;
 import com.example.susi.entity.Reservation;
 import com.example.susi.entity.ReserveTime;
+import com.example.susi.entity.admin.MenuType;
+import com.example.susi.repository.admin.MenuTypeRepository;
 
 import java.time.LocalDate;
 import java.util.HashMap;

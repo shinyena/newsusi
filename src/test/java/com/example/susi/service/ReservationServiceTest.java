@@ -19,58 +19,58 @@
 //    @Autowired
 //    private ReservationService reservationService;
 //
-////    @Commit
-////    @Transactional
-////    @Test
-////    public void insertReservation() {
-////        IntStream.rangeClosed(1, 10).forEach(i -> {
-////            ReservationDTO reservationDTO = ReservationDTO.builder()
-////                    .email("user" + i + "@gmail.com")
-////                    .name("USER" + i)
-////                    .phone("01012345678")
-////                    .count(i)
-////                    .rdate(LocalDate.of(2021, 01, i))
-////                    .rtime("AM11")
-////                    .build();
-////            reservationService.register(reservationDTO);
-////        });
-////    }
+//    @Commit
+//    @Transactional
+//    @Test
+//    public void insertReservation() {
+//        IntStream.rangeClosed(1, 10).forEach(i -> {
+//            ReservationDTO reservationDTO = ReservationDTO.builder()
+//                    .email("user" + i + "@gmail.com")
+//                    .name("USER" + i)
+//                    .phone("01012345678")
+//                    .count(i)
+//                    .rdate(LocalDate.of(2021, 01, i))
+//                    .rtime("AM11")
+//                    .build();
+//            reservationService.register(reservationDTO);
+//        });
+//    }
 //
-////    @Commit
-////    @Transactional
-////    @Test
-////    public void insertReservation2() {
-////        ReservationDTO reservationDTO = ReservationDTO.builder()
-////                .email("user18@gmail.com")
-////                .name("USER18")
-////                .phone("01012345678")
-////                .count(2)
-////                .rdate(LocalDate.of(2021, 01, 01))
-////                .rtime("PM18")
-////                .build();
-////        reservationService.register(reservationDTO);
-////    }
+//    @Commit
+//    @Transactional
+//    @Test
+//    public void insertReservation2() {
+//        ReservationDTO reservationDTO = ReservationDTO.builder()
+//                .email("user18@gmail.com")
+//                .name("USER18")
+//                .phone("01012345678")
+//                .count(2)
+//                .rdate(LocalDate.of(2021, 01, 01))
+//                .rtime("PM18")
+//                .build();
+//        reservationService.register(reservationDTO);
+//    }
 //
-////    @Modifying
-////    @Commit
-////    @Transactional
-////    @Test
-////    public void modifyReservation() {
-////        ReservationDTO reservationDTO = ReservationDTO.builder()
-////                .rid(4L)
-////                .count(2)
-////                .rdate(LocalDate.of(2021, 02, 17))
-////                .rtime("AM11")
-////                .build();
-////        reservationService.modify(reservationDTO);
-////    }
+//    @Modifying
+//    @Commit
+//    @Transactional
+//    @Test
+//    public void modifyReservation() {
+//        ReservationDTO reservationDTO = ReservationDTO.builder()
+//                .rid(4L)
+//                .count(2)
+//                .rdate(LocalDate.of(2021, 02, 17))
+//                .rtime("AM11")
+//                .build();
+//        reservationService.modify(reservationDTO);
+//    }
 //
-////    @Commit
-////    @Transactional
-////    @Test
-////    public void removeReservation() {
-////        reservationService.remove(3L);
-////    }
+//    @Commit
+//    @Transactional
+//    @Test
+//    public void removeReservation() {
+//        reservationService.remove(3L);
+//    }
 //
 //    @Test
 //    public void getAll() {

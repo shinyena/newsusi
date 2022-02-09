@@ -14,5 +14,6 @@ public class MenuDTO {
     private String menuName;
     private String menuComment;
     private int menuPrice;
+    private Long menuTypeId;
     private String menuType;
 }

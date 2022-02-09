@@ -39,6 +39,7 @@
                     </div>
                     <div class="modal-body">
                         <input type="hidden" name="menuId">
+                        <input type="hidden" name="menuTypeId">
                         <div class="form-group">
                             <label>메뉴 종류</label>
                             <select class="form-control" name="menuType">
@@ -70,6 +71,7 @@
 
         <script>
 
+            var menuTypeId = $("input[name='menuTypeId']");
             var menuType = $("select[name='menuType']");
             var menuName = $("input[name='menuName']");
             var menuComment = $("#menuComment");
@@ -82,6 +84,7 @@
                     url: "/susi/admin/menu/" + menuId,
                     success: function (dto) {
                         $(".modal-title").html("메뉴 변경");
+                        menuTypeId.val(dto.menuTypeId);
                         menuType.val(dto.menuType);
                         menuName.val(dto.menuName);
                         menuComment.val(dto.menuComment);
@@ -97,6 +100,7 @@
                 $(".modifyBtn").off().click(function () {
                     var data = {
                         menuId: menuId,
+                        menuTypeId: menuTypeId.val(),
                         menuName: menuName.val(),
                         menuComment: menuComment.val(),
                         menuPrice: parseInt(menuPrice.val()),
@@ -143,6 +147,7 @@
 
             $(".addBtn").click(function () {
                 $(".modal-title").html("메뉴 등록");
+                menuTypeId.val("");
                 menuName.val("");
                 menuComment.val("");
                 menuPrice.val("");
@@ -154,6 +159,7 @@
 
                 $(".saveBtn").off().click(function () {
                     var data = {
+                        menuTypeId: menuTypeId.val(),
                         menuType: menuType.val(),
                         menuName: menuName.val(),
                         menuComment: menuComment.val(),
