@@ -32,6 +32,6 @@ public class CustomErrorController implements ErrorController {
             return "redirect:" + msg.toString();
         }
 
-        return "/susi/admin/error";
+        return "susi/admin/error";
     }
 }
