@@ -56,9 +56,9 @@
     </div>
 
     <script>
-        var $ = parent.$;
+
         $.getJSON("/susi/date", function (result) {
-            $(".datePicker").datepicker({
+            $(".datePicker").fn.datepicker({
                 startDate: '+1d',
                 datesDisabled: result,
                 daysOfWeekDisabled: [0]
