@@ -63,16 +63,13 @@ public interface AdminService {
         return dto;
     }
 
-    default Menu dtoToMenu(MenuDTO dto) {
+    default Menu dtoToMenu(MenuDTO dto, MenuType menuType) {
         Menu entity = Menu.builder()
                 .menuId(dto.getMenuId())
                 .menuName(dto.getMenuName())
                 .menuComment(dto.getMenuComment())
                 .menuPrice(dto.getMenuPrice())
-                .menuType(MenuType.builder()
-                        .typeId(dto.getMenuTypeId())
-                        .type(dto.getMenuType())
-                        .build())
+                .menuType(menuType)
                 .build();
         return entity;
     }
@@ -83,7 +80,6 @@ public interface AdminService {
                 .menuName(entity.getMenuName())
                 .menuComment(entity.getMenuComment())
                 .menuPrice(entity.getMenuPrice())
-                .menuTypeId(entity.getMenuType().getTypeId())
                 .menuType(entity.getMenuType().getType())
                 .build();
         return dto;

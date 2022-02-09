@@ -79,7 +79,8 @@ public class AdminServiceImpl implements AdminService{
     /** Menu Service */
     @Override
     public void registerMenu(MenuDTO menuDTO) {
-        Menu menu = dtoToMenu(menuDTO);
+        MenuType menuType = menuTypeRepository.findMenuTypeByType(menuDTO.getMenuType());
+        Menu menu = dtoToMenu(menuDTO, menuType);
         menuRepository.save(menu);
     }
 
@@ -104,12 +105,13 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public void modifyMenu(@RequestBody MenuDTO menuDTO) {
+        MenuType menuType = menuTypeRepository.findMenuTypeByType(menuDTO.getMenuType());
         Optional<Menu> byId = menuRepository.findById(menuDTO.getMenuId());
         Menu menu = byId.get();
         menu.changeMenuName(menuDTO.getMenuName());
         menu.changeMenuComment(menuDTO.getMenuComment());
         menu.changeMenuPrice(menuDTO.getMenuPrice());
-        menu.changeMenuType(dtoToMenu(menuDTO).getMenuType());
+        menu.changeMenuType(menuType);
         menuRepository.save(menu);
     }
 
