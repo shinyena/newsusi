@@ -68,12 +68,15 @@
     <script th:src="@{/assets/js/adminScript.js}"></script>
     <script th:src="@{/assets/js/bootstrap-datepicker.js}"></script>
     <script>
-        $(function () {
-            var msg = '[(${msg})]' || '';
-            if (msg != "") {
-                alert(msg);
-            }
-        })
+        (function ($) {
+            $(function () {
+                var msg = '[(${msg})]' || '';
+                if (msg != "") {
+                    alert(msg);
+                }
+            })
+        }) (jQuery);
+
     </script>
 
     </body>

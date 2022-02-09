@@ -81,33 +81,34 @@
     </div>
 
     <script>
-        $.getJSON("/susi/date", function (result) {
-            $(".datePicker").datepicker({
-                startDate: '+1d',
-                datesDisabled: result,
-                daysOfWeekDisabled: [0]
-            }).on("change", function () {
-                $("select option").removeAttr('disabled');
+        (function ($) {
+            $.getJSON("/susi/date", function (result) {
+                $(".datePicker").datepicker({
+                    startDate: '+1d',
+                    datesDisabled: result,
+                    daysOfWeekDisabled: [0]
+                }).on("change", function () {
+                    $("select option").removeAttr('disabled');
 
-                var data = {
-                    rdate: $(".datePicker").val()
-                }
-
-                $.ajax({
-                    url: "/susi/time",
-                    type: "post",
-                    data: JSON.stringify(data),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "text",
-                    success: function (result) {
-                        console.log(result);
-                        $.each(JSON.parse(result), function (idx, dto) {
-                            $("select option[value='" + dto.rtime + "']").attr('disabled', true);
-                        });
+                    var data = {
+                        rdate: $(".datePicker").val()
                     }
+
+                    $.ajax({
+                        url: "/susi/time",
+                        type: "post",
+                        data: JSON.stringify(data),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "text",
+                        success: function (result) {
+                            console.log(result);
+                            $.each(JSON.parse(result), function (idx, dto) {
+                                $("select option[value='" + dto.rtime + "']").attr('disabled', true);
+                            });
+                        }
+                    });
                 });
             });
-        });
-
+        })(jQuery);
     </script>
 </th:block>
