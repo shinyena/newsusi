@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="~{/layout/adminIndex :: setContent(~{this::content})}">
+<th:block th:replace="~{layout/adminIndex :: setContent(~{this::content})}">
     <th:block th:fragment="content">
         <h1 class="mt-4">메뉴 변경 &nbsp
             <button class="btn btn-success addBtn">메뉴 추가</button>
