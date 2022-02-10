@@ -58,7 +58,7 @@ public class ReservationController {
         model.addAttribute("info", information);
     }
 
-//    @UserLoginCheck
+    @UserLoginCheck
     @GetMapping("/subpage")
     public void subpage(Model model, HttpSession session) {
         model.addAttribute("email", session.getAttribute("userId"));
