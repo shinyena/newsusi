@@ -82,7 +82,7 @@
 
     <script>
         $.getJSON("/susi/date", function (result) {
-            $(".datePicker").fn.datepicker({
+            $(".datePicker").datepicker({
                 startDate: '+1d',
                 datesDisabled: result,
                 daysOfWeekDisabled: [0]

@@ -2020,7 +2020,7 @@
 	/* DATEPICKER DATA-API
 	* ================== */
 
-	$(document).fn.on(
+	$(document).on(
 		'focus.datepicker.data-api click.datepicker.data-api',
 		'[data-provide="datepicker"]',
 		function(e){
