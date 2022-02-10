@@ -26,6 +26,7 @@ public class LoginCheckAspect {
     public void userLoginCheck() throws Throwable{
         HttpSession session = ((ServletRequestAttributes)(RequestContextHolder.currentRequestAttributes())).getRequest().getSession();
         if (session.getAttribute("userId") == null) {
+//            session.setAttribute("userId", "yena5790@naver.com");
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "/susi/kakao/authorize");
         }
     }

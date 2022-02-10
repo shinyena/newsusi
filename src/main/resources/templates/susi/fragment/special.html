@@ -38,10 +38,18 @@
                                     <input type="tel" class="form-control" name="phone" th:value="${dto.phone}"
                                            required>
                                 </div>
-                                <div class="col-lg-6 form-group mt-3">
+                                <div class="col-lg-4 col-md-6 form-group mt-3">
                                     <label>예약일</label>
-                                    <input class="form-control datePicker" name="rdate" th:value="${dto.rdate}"
-                                           required>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="rdate" th:value="${dto.rdate}" readonly required>
+                                        <div class="input-group-append">
+                                        <span class="btn btn-outline-secondary datePicker bi bi-calendar3 d-flex align-items-center" th:data-date="${dto.rdate}">
+                                        </span>
+                                        </div>
+                                    </div>
+<!--                                    <input type="hidden" class="form-control" name="rdate" th:value="${dto.rdate}"-->
+<!--                                           readonly required>-->
+<!--                                    <div class="datePicker" th:data-date="${dto.rdate}"></div>-->
                                 </div>
                                 <div class="col-lg-6 form-group mt-3">
                                     <label>예약시간</label>
@@ -86,12 +94,16 @@
                 startDate: '+1d',
                 datesDisabled: result,
                 daysOfWeekDisabled: [0]
-            }).on("change", function () {
+            }).on("changeDate", function () {
                 $("select option").removeAttr('disabled');
 
+                var chooseDate = $(this).datepicker('getFormattedDate')
+                console.log(chooseDate);
+                $("input[name='rdate']").val(chooseDate);
                 var data = {
-                    rdate: $(".datePicker").val()
+                    rdate: chooseDate
                 }
+                console.log(data);
 
                 $.ajax({
                     url: "/susi/time",

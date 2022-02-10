@@ -19,11 +19,12 @@
 }
 
 body {
-  font-family: "JSArirang";
+  font-family: "PretendardR";
   color: #444444;
 }
 
 a {
+  font-family: "PretendardR";
   text-decoration: none;
   color: #ffb03b;
 }
@@ -176,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 .datepicker,
 .table-condensed {
   width: 300px;
-  height:300px;
+  height: 300px;
   font-family: PretendardR;
 }
 
@@ -1035,13 +1036,13 @@ section {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
-.php-email-form input, .php-email-form textarea, .php-email-form select {
+.php-email-form input, .php-email-form textarea, .php-email-form select, .php-email-form span {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
   font-family: PretendardR;
 }
-.php-email-form input, .php-email-form select {
+.php-email-form input, .php-email-form select, .php-email-form span {
   height: 44px;
 }
 .php-email-form textarea {

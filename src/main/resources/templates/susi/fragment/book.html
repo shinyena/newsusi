@@ -24,7 +24,18 @@
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
                     <label>예약일</label>
-                    <input class="form-control datePicker" name="rdate" required>
+                    <div class="input-group">
+                        <input type="date" class="form-control" name="rdate" readonly required>
+
+                        <div class="input-group-append">
+                            <span class="btn btn-outline-secondary datePicker bi bi-calendar3 d-flex align-items-center">
+                            </span>
+                        </div>
+                    </div>
+
+<!--                    <input type="hidden" class="form-control" name="rdate" readonly required>-->
+<!--                    <div class="datePicker"></div>-->
+
                 </div>
                 <div class="col-lg-4 col-md-6 form-group mt-3">
                     <label>예약시간</label>
@@ -44,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group mt-3">
-                <label>Message</label>
+                <label>요청사항</label>
                 <textarea class="form-control" name="message" rows="5"></textarea>
             </div>
             <br>
@@ -62,12 +73,16 @@
                 startDate: '+1d',
                 datesDisabled: result,
                 daysOfWeekDisabled: [0]
-            }).on("change", function () {
+            }).on("changeDate", function () {
                 $("select option").removeAttr('disabled');
 
+                var chooseDate = $('.datePicker').datepicker('getFormattedDate')
+                $("input[name='rdate']").val(chooseDate);
                 var data = {
-                    rdate: $(".datePicker").val()
+                    rdate: chooseDate
                 }
+                console.log(data);
+
 
                 $.ajax({
                     url: "/susi/time",
@@ -85,5 +100,8 @@
             });
         });
 
+
     </script>
+
+
 </th:block>
