@@ -36,7 +36,7 @@ public class ReservationController {
         String url = "https://kauth.kakao.com/oauth/authorize" +
                 "?response_type=code" +
                 "&client_id=c524a7239cfdb94b1732cb913de178c9" +
-                "&redirect_uri=http://ec2-34-224-37-145.compute-1.amazonaws.com:8080/susi/kakao/login";
+                "&redirect_uri=http://ec2-3.93.18.124.compute-1.amazonaws.com:8080/susi/kakao/login";
         return "redirect:" + url;
     }
 
