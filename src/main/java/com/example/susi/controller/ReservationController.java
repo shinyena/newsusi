@@ -80,7 +80,7 @@ public class ReservationController {
     @UserLoginCheck
     @PostMapping("/register")
     public String register(ReservationDTO reservationDTO, RedirectAttributes redirectAttributes) {
-        System.out.println("reservationDTO = " + reservationDTO);
+        log.info("reservationDTO = " + reservationDTO);
         service.register(reservationDTO);
         redirectAttributes.addFlashAttribute("msg", "예약이 완료되었습니다.");
         return "redirect:/susi/mainpage";

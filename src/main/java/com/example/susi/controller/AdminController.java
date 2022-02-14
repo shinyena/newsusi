@@ -10,6 +10,7 @@ import com.example.susi.service.AdminService;
 import com.example.susi.service.LoginService;
 import com.example.susi.service.ReservationService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@Log4j2
 @Controller
 @RequestMapping("/susi/admin")
 @RequiredArgsConstructor
@@ -147,7 +149,7 @@ public class AdminController implements ErrorController {
     @AdminLoginCheck
     @PostMapping("/information")
     public String modifyInformation(InformationDTO informationDTO, RedirectAttributes redirectAttributes) {
-        System.out.println("informationDTO = " + informationDTO);
+        log.info("informationDTO = " + informationDTO);
         adminService.modifyInformation(informationDTO);
         redirectAttributes.addFlashAttribute("msg", "저장되었습니다!");
         return "redirect:/susi/admin/information";
