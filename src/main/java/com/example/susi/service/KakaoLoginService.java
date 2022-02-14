@@ -3,6 +3,7 @@ package com.example.susi.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -11,6 +12,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+@Log4j2
 @Service
 public class KakaoLoginService {
     public String getToken(String code) {
@@ -97,6 +99,7 @@ public class KakaoLoginService {
             else {
                 email = kakao_account.getAsJsonObject().get("email").getAsString();
             }
+            log.info("email = " + email);
 
             JsonObject profile = kakao_account.getAsJsonObject().get("profile").getAsJsonObject();
             String name = profile.getAsJsonObject().get("nickname").getAsString();
