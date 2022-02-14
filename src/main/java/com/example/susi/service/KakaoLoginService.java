@@ -90,7 +90,14 @@ public class KakaoLoginService {
             JsonElement element = parser.parse(result);
 
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-            String email = kakao_account.getAsJsonObject().get("email").getAsString();
+            String email;
+            if (kakao_account.getAsJsonObject().get("email").isJsonNull()) {
+                email = "";
+            }
+            else {
+                email = kakao_account.getAsJsonObject().get("email").getAsString();
+            }
+
             JsonObject profile = kakao_account.getAsJsonObject().get("profile").getAsJsonObject();
             String name = profile.getAsJsonObject().get("nickname").getAsString();
 
