@@ -13,13 +13,13 @@ import java.util.Date;
 @Controller
 public class CustomErrorController implements ErrorController {
     private static final String ERROR_PATH = "/error";
-
     public String getErrorPath() {
         return ERROR_PATH;
     }
 
     @RequestMapping("/error")
-    public String getErrorPage(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) {
+    public String getErrorPage(HttpServletRequest request, Model model,
+                               RedirectAttributes redirectAttributes) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         Object msg = request.getAttribute(RequestDispatcher.ERROR_MESSAGE);
 
@@ -29,6 +29,14 @@ public class CustomErrorController implements ErrorController {
 
         if (status.equals(401)) {
             redirectAttributes.addFlashAttribute("msg", "로그인이 필요한 서비스입니다.");
+            return "redirect:" + msg.toString();
+        }
+        if (status.equals(601)) {
+            redirectAttributes.addFlashAttribute("msg", "이미 등록된 일자입니다.");
+            return "redirect:" + msg.toString();
+        }
+        if (status.equals(602)) {
+            redirectAttributes.addFlashAttribute("msg", "이미 등록된 시간입니다.");
             return "redirect:" + msg.toString();
         }
 
