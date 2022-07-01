@@ -17,11 +17,11 @@
 //        Information information = Information.builder()
 //                .adminId("sushicaptain")
 //                .password("1234")
-//                .location("")
-//                .open("")
-//                .close("")
-//                .instagram("")
-//                .phone("")
+//                .location("인천 중구 햇내로안길 48-8")
+//                .open("11:30 AM - 14:00 PM, 17:00 PM - 21:00 PM")
+//                .close("첫째주 토요일, 매주 일요일")
+//                .instagram("sushi_captain")
+//                .phone("032-223-1117")
 //                .build();
 //
 //        repository.save(information);
