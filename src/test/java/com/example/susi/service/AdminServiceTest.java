@@ -16,13 +16,13 @@
 //    @Autowired
 //    AdminService adminService;
 //
-////    @Test
-////    void modifyInformation() {
-////        adminService.modifyInformation(InformationDTO.builder()
-////                        .adminId("sushicaptain")
-////                        .location("인천 중구 햇내로안길 48-8")
-////                        .build());
-////    }
+//    @Test
+//    void modifyInformation() {
+//        adminService.modifyInformation(InformationDTO.builder()
+//                        .adminId("sushicaptain")
+//                        .location("인천 중구 햇내로안길 48-8")
+//                        .build());
+//    }
 //
 //    @Test
 //    void getAllMenu() {
